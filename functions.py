@@ -1,7 +1,7 @@
 
 def show_data():
     """Выводит информацию из справочника"""
-    with open('sem_8_practice\\book.txt', 'r', encoding='utf-8') as book:
+    with open('book.txt', 'r', encoding='utf-8') as book:
         print(book.read())
 
 
@@ -9,13 +9,13 @@ def add_data():
     """Добавляет информацию в справочник."""
     fio = input('Введите ФИО:')
     phone_num = input('Введите номер телефона: ')
-    with open('sem_8_practice\\book.txt', 'a', encoding='utf-8') as book:
+    with open('book.txt', 'a', encoding='utf-8') as book:
         book.write(f'\n{fio} | {phone_num}')
 
 
 def find_data():
     """Печатает результат поиска по справочнику."""
-    with open('sem_8_practice\\book.txt', 'r', encoding='utf-8') as file:
+    with open('book.txt', 'r', encoding='utf-8') as file:
         data = file.read().split('\n')
     contact_to_find = input('Введите, что хотите найти: ')
     result = search(data, contact_to_find)
@@ -38,7 +38,7 @@ def search(book: list, info: str) -> list:
 
 def correct_data():
     """Корректирует информацию в справочнике"""
-    with open('sem_8_practice\\book.txt', 'r', encoding='utf-8') as file:
+    with open('book.txt', 'r', encoding='utf-8') as file:
         data = file.read().split('\n')
     contact_to_find = input('Введите, что хотите найти: ')
     search_for_correct = search(data, contact_to_find)
@@ -48,5 +48,5 @@ def correct_data():
         data.remove(search_for_correct)
     elif change_of_option == 2:
         data[data.index(search_for_correct)] = input('Введите корректные ФИО и номер телефона: ')
-    with open('sem_8_practice\\book.txt', 'w', encoding='utf-8') as file:
+    with open('book.txt', 'w', encoding='utf-8') as file:
         file.write('\n'.join(data))
